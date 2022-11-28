@@ -20,6 +20,7 @@ def navis3800_5100_track_extract(fname, path):
         i += 8
         num += 1
     st = 22
+    st1 = 1
 
     SIG = b'\xDC\xFE'
 
