@@ -12,7 +12,7 @@ with open(filepath1, "w") as f:
         f.write(str(i[0]) + "," + str(i[1]) + "," + str(i[2]))
         f.write("\n")
 
-print("123")
+print("12344")
 
 
 
