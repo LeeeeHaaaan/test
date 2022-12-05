@@ -1,47 +1,20 @@
-from datetime import datetime
+import requests
 
-#35.50655
-#129.43270
+REST_URL = "http://163.152.127.42:8000/tasks/create/file"
+SAMPLE_FILE = "D:/Data/train/dataset/00bc38c4f52c59864994581fb4c92006.vir"
+HEADERS = {"Authorization": "Bearer S4MPL3"}
+csrftoken = "oXToH5vwVu0U8KaHmWZiYR15CgI1Pxsu"
 
-n = "35:31.703 N"
-e = "129:33.540 E"
+cookie = {
+    "csrftoken" : csrftoken
 
-epoch_start = datetime.datetime(1601, 1, 1)
-delta = datetime.timedelta(microseconds=int(webkit_timestamp))
-return epoch_start + delta
+}
 
+with open(SAMPLE_FILE, "rb") as sample:
+    files = {"file": ("sample", sample)}
 
-if n.split(" ")[1] == "W" or "S"
-angle = int(n.split(" ")[0].split(":")[0])
+    with requests.Session() as s:
+        res = s.post(REST_URL, cookies=cookie, files=files)
 
-
-value = n.split(" ")[0].split(":")[1]
-minute = int(value.split(".")[0])
-
-
-value = float(value)
-seconds = value - int(value)
-
-seconds = round((round(seconds,3) * 60), 2)
-
-
-result = angle + minute/60 + seconds/3600
-print(round(result, 5))
-
-
-
-angle = int(e.split(" ")[0].split(":")[0])
-
-
-value = e.split(" ")[0].split(":")[1]
-minute = int(value.split(".")[0])
-
-
-value = float(value)
-seconds = value - int(value)
-
-seconds = round((round(seconds,3) * 60), 2)
-
-
-result = angle + minute/60 + seconds/3600
-print(round(result, 5))
+result = res.json()["task_id"]
+print(result)

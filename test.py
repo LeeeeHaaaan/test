@@ -1,18 +1,18 @@
-import SAMYOUNG_Navis3800_5100_track_parser as getTrack
+import requests
 
-filepath = "D:\\WaterPolice\\Navis3800\\tmp\\navis3800\\navis3800\\p1bfdd244c5b5a4ed6a6a010525f289db3\\T4000.dat"
-trackData = getTrack.track(filepath)
+with requests.Session() as s:
+    res = s.get("http://163.152.127.42:8000/tasks/create/file")
+    print(res.status_code)
 
+SAMPLE_FILE = "/path/to/malwr.exe"
+HEADERS = {"Authorization": "Bearer S4MPL3"}
 
-getTrackData = []
+with open(SAMPLE_FILE, "rb") as sample:
+    files = {"file": ("temp_file_name", sample)}
+    r = requests.post(REST_URL, headers=HEADERS, files=files)
 
-filepath1 = "C:\\Temp\\test.txt"
-with open(filepath1, "w") as f:
-    for i in trackData:
-        f.write(str(i[0]) + "," + str(i[1]) + "," + str(i[2]))
-        f.write("\n")
+# Add your code to error checking for r.status_code.
 
-print("12344")
-print("123123")
+task_id = r.json()["task_id"]
 
-
+# Add your code for error checking if task_id is None.
