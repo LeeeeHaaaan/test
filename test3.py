@@ -13,7 +13,7 @@ allpath = "D:\\Data\\train\\dataset"
 #     shutil.move("D:\\Data\\train\\dataset\\" + i, "D:\\Data\\train\\ELF")
 
 
-filepath1 = "D:\\Data\\train\\ELF\\"
+filepath1 = "D:\\Data\\Test\\test_dataset\\test_dataset\\"
 filelist = os.listdir(filepath1)
 
 elflist = []
@@ -24,5 +24,6 @@ for i in filelist:
             elflist.append(i)
 
 a_sub_b = [x for x in filelist if x not in elflist]
+
 for i in a_sub_b:
-    shutil.move("D:\\Data\\train\\ELF\\" + i, "D:\\Data\\train\\HTML")
+    shutil.move("D:\\Data\\Test\\test_dataset\\test_dataset\\" + i, "D:\\Data\\Test\\test_dataset\\HTML_PE")
