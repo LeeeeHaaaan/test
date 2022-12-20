@@ -16,14 +16,16 @@ allpath = "D:\\Data\\train\\dataset"
 filepath1 = "D:\\Data\\Test\\test_dataset\\test_dataset\\"
 filelist = os.listdir(filepath1)
 
-elflist = []
+elflist = 0
 
 for i in filelist:
     with open(filepath1 + i, "rb") as f:
         if f.read(3) == b"\x7fEL":
-            elflist.append(i)
+            elflist += 1
+            print(i, f.read(3))
 
-a_sub_b = [x for x in filelist if x not in elflist]
 
-for i in a_sub_b:
-    shutil.move("D:\\Data\\Test\\test_dataset\\test_dataset\\" + i, "D:\\Data\\Test\\test_dataset\\HTML_PE")
+#a_sub_b = [x for x in filelist if x not in elflist]
+
+#for i in a_sub_b:
+#    shutil.move("D:\\Data\\Test\\test_dataset\\test_dataset\\" + i, "D:\\Data\\Test\\test_dataset\\HTML_PE")
