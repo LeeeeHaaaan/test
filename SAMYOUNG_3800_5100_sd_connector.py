@@ -10,7 +10,7 @@ from modules.GPS_SAMYOUNG.Navis3800_5100 import SAMYOUNG_Navis3800_5100_mark_par
 class SAMYOUNG_3800_5100_sd_connector(interface.ModuleConnector):
     # NAME 은 python 파일 이름과 동일.
     NAME = "SAMYOUNG_3800_5100_sd_connector"
-    DESCRIPTION = "Module for SAMYOUNG_3800_5100_sd_(Coastline, Track, Waypoint, Mark)"
+    DESCRIPTION = "Module for SAMYOUNG_3800_5100_sd_(Coastline, Track, Waypoint, Mark)asdasdasd"
 
     _plugin_classes = {}
 
